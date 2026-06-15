@@ -1,408 +1,511 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
-<link rel="icon" type="image/png" href="happy-birthday.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Raju 🎂</title>
+    <link rel="icon" type="image/png" href="happy-birthday.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Raju 🎂</title>
 
-<style>
-#giftBtn.claimed{
-    cursor:not-allowed;
-}
-#giftBtn{
-padding:15px 35px;
-font-size:1.1rem;
-border:none;
-border-radius:50px;
-cursor:pointer;
-background:linear-gradient(45deg,#00e5ff,#7c4dff);
-color:white;
-font-weight:bold;
-transition:0.3s;
-box-shadow:0 0 20px rgba(0,229,255,0.5);
-}
+    <style>
+        #giftBtn.claimed {
+            cursor: not-allowed;
+        }
 
-#giftBtn:hover{
-transform:scale(1.08);
-box-shadow:0 0 35px rgba(0,229,255,0.9);
-}
+        #giftBtn {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #00e5ff, #7c4dff);
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
+        }
 
-.popup{
-display:none;
-position:fixed;
-z-index:9999;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-backdrop-filter:blur(8px);
-}
+        #giftBtn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 35px rgba(0, 229, 255, 0.9);
+        }
 
-.popup-content{
-position:relative;
-background:rgba(20,20,40,0.95);
-margin:5% auto;
-width:90%;
-max-width:500px;
-padding:25px;
-border-radius:20px;
-text-align:center;
-animation:popupAnim .5s ease;
-}
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+        }
 
-@keyframes popupAnim{
-from{
-opacity:0;
-transform:scale(.6);
-}
-to{
-opacity:1;
-transform:scale(1);
-}
-}
+        .popup-content {
+            position: relative;
+            background: rgba(20, 20, 40, 0.95);
+            margin: 5% auto;
+            width: 90%;
+            max-width: 500px;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            animation: popupAnim .5s ease;
+        }
 
-.gift-image{
-width:100%;
-border-radius:15px;
-margin-top:15px;
-box-shadow:0 0 20px cyan;
-}
+        @keyframes popupAnim {
+            from {
+                opacity: 0;
+                transform: scale(.6);
+            }
 
-.closeBtn{
-position:absolute;
-top:10px;
-right:20px;
-font-size:30px;
-cursor:pointer;
-}
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
 
-body{
-    margin:0;
-    padding:0;
-    background:linear-gradient(135deg,#0f172a,#1e1b4b,#000);
-    color:white;
-    font-family:Arial,sans-serif;
-    text-align:center;
-    overflow-x:hidden;
-}
+        .gift-image {
+            width: 100%;
+            border-radius: 15px;
+            margin-top: 15px;
+            box-shadow: 0 0 20px cyan;
+        }
 
-.container{
-    padding:30px;
-}
+        .closeBtn {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+        }
 
-h1{
-    font-size:3rem;
-    animation:glow 2s infinite alternate;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f172a, #1e1b4b, #000);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-@keyframes glow{
-    from{ text-shadow:0 0 10px cyan;}
-    to{ text-shadow:0 0 25px magenta;}
-}
+        .container {
+            padding: 30px;
+        }
 
-img{
-    width:250px;
-    border-radius:20px;
-    border:4px solid cyan;
-    box-shadow:0 0 25px cyan;
-    animation:float 3s ease-in-out infinite;
-}
+        h1 {
+            font-size: 3rem;
+            animation: glow 2s infinite alternate;
+        }
 
-@keyframes float{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-    100%{transform:translateY(0);}
-}
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px cyan;
+            }
 
-.card{
-    max-width:700px;
-    margin:20px auto;
-    padding:20px;
-    background:rgba(255,255,255,0.1);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-}
+            to {
+                text-shadow: 0 0 25px magenta;
+            }
+        }
 
-.level{
-    font-size:2rem;
-    color:#00ff88;
-    margin-top:15px;
-}
+        img {
+            width: 250px;
+            border-radius: 20px;
+            border: 4px solid cyan;
+            box-shadow: 0 0 25px cyan;
+            animation: float 3s ease-in-out infinite;
+        }
 
-.badge{
-    background:#ffcc00;
-    color:black;
-    padding:10px 20px;
-    border-radius:30px;
-    display:inline-block;
-    margin-top:10px;
-    font-weight:bold;
-}
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
 
-.footer{
-    margin-top:30px;
-    opacity:0.8;
-}
+            50% {
+                transform: translateY(-10px);
+            }
 
-.confetti{
-    position:fixed;
-    width:10px;
-    height:10px;
-    background:red;
-    top:-10px;
-    animation:fall linear infinite;
-}
+            100% {
+                transform: translateY(0);
+            }
+        }
 
-@keyframes fall{
-    to{
-        transform:translateY(100vh) rotate(720deg);
-    }
-}
-@keyframes shake{
-  0%, 100% { transform: translateX(0); }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); }
-  20%, 40%, 60%, 80% { transform: translateX(6px); }
-}
+        .card {
+            max-width: 700px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+        }
 
-#giftBtn.shaking{
-  animation: shake 0.3s infinite;
-}
+        .level {
+            font-size: 2rem;
+            color: #00ff88;
+            margin-top: 15px;
+        }
 
-@keyframes blastPop{
-  0% { transform: scale(0.5); opacity: 1; }
-  100% { transform: scale(8); opacity: 0; }
-}
+        .badge {
+            background: #ffcc00;
+            color: black;
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
 
-.blast{
-  position: fixed;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff, #00e5ff 40%, transparent 70%);
-  pointer-events: none;
-  z-index: 9998;
-  animation: blastPop 0.6s ease-out forwards;
-}
-@keyframes flash{
-  0% { opacity: 1; transform: scale(0.3); }
-  50% { opacity: 0.8; transform: scale(2); }
-  100% { opacity: 0; transform: scale(3); }
-}
+        .footer {
+            margin-top: 30px;
+            opacity: 0.8;
+        }
 
-@keyframes shockwave{
-  0% { transform: scale(0.2); opacity: 1; border-width: 8px; }
-  100% { transform: scale(6); opacity: 0; border-width: 1px; }
-}
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: red;
+            top: -10px;
+            animation: fall linear infinite;
+        }
 
-@keyframes particleFly{
-  0% { transform: translate(0,0) scale(1); opacity: 1; }
-  100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
-}
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(720deg);
+            }
+        }
 
-.flash{
-  position: fixed;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff, #ffeb3b 30%, #ff9800 60%, transparent 80%);
-  pointer-events: none;
-  z-index: 9998;
-  animation: flash 0.4s ease-out forwards;
-}
+        @keyframes shake {
 
-.shockwave{
-  position: fixed;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  border: 6px solid #00e5ff;
-  pointer-events: none;
-  z-index: 9998;
-  animation: shockwave 0.6s ease-out forwards;
-}
+            0%,
+            100% {
+                transform: translateX(0);
+            }
 
-.particle{
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  animation: particleFly 0.7s ease-out forwards;
-}
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-6px);
+            }
 
-@keyframes shake{
-  0%, 100% { transform: translateX(0); }
-  10%, 30%, 50%, 70%, 90% { transform: translateX(-6px); }
-  20%, 40%, 60%, 80% { transform: translateX(6px); }
-}
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(6px);
+            }
+        }
 
-#giftBtn.shaking{
-  animation: shake 0.3s infinite;
-}
-</style>
+        #giftBtn.shaking {
+            animation: shake 0.3s infinite;
+        }
+
+        @keyframes blastPop {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(8);
+                opacity: 0;
+            }
+        }
+
+        .blast {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff, #00e5ff 40%, transparent 70%);
+            pointer-events: none;
+            z-index: 9998;
+            animation: blastPop 0.6s ease-out forwards;
+        }
+
+        @keyframes flash {
+            0% {
+                opacity: 1;
+                transform: scale(0.3);
+            }
+
+            50% {
+                opacity: 0.8;
+                transform: scale(2);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(3);
+            }
+        }
+
+        @keyframes shockwave {
+            0% {
+                transform: scale(0.2);
+                opacity: 1;
+                border-width: 8px;
+            }
+
+            100% {
+                transform: scale(6);
+                opacity: 0;
+                border-width: 1px;
+            }
+        }
+
+        @keyframes particleFly {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--x), var(--y)) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .flash {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #fff, #ffeb3b 30%, #ff9800 60%, transparent 80%);
+            pointer-events: none;
+            z-index: 9998;
+            animation: flash 0.4s ease-out forwards;
+        }
+
+        .shockwave {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 6px solid #00e5ff;
+            pointer-events: none;
+            z-index: 9998;
+            animation: shockwave 0.6s ease-out forwards;
+        }
+
+        .particle {
+            position: fixed;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            animation: particleFly 0.7s ease-out forwards;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-6px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(6px);
+            }
+        }
+
+        #giftBtn.shaking {
+            animation: shake 0.3s infinite;
+        }
+    </style>
 
 </head>
 
 <body>
+    <audio id="faaahSound" preload="auto">
+        <source src="faaah.mp3" type="audio/mpeg">
+    </audio>
 
-<div class="container">
+    <div class="container">
 
-<h1>🎮 HAPPY BIRTHDAY RAJU 🎂</h1>
+        <h1>🎮 HAPPY BIRTHDAY RAJU 🎂</h1>
 
-<h2>aka AYUSH KUMAR 😎</h2>
+        <h2>aka AYUSH KUMAR 😎</h2>
 
-<img src="raju.png" alt="Raju">
+        <img src="raju.png" alt="Raju">
 
-<div class="card">
+        <div class="card">
 
-<div class="level">
-LEVEL 22 UNLOCKED 🔥
-</div>
+            <div class="level">
+                LEVEL 22 UNLOCKED 🔥
+            </div>
 
-<div class="badge">
-🏆 BEST FRIEND ACHIEVEMENT UNLOCKED
-</div>
+            <div class="badge">
+                🏆 BEST FRIEND ACHIEVEMENT UNLOCKED
+            </div>
 
-<p style="font-size:1.2rem;margin-top:20px;">
-Bro, another year older but still the same guy who can
-eat our snacks, roast everyone, and somehow survive every situation. 😂
-</p>
+            <p style="font-size:1.2rem;margin-top:20px;">
+                Bro, another year older but still the same guy who can
+                eat our snacks, roast everyone, and somehow survive every situation. 😂
+            </p>
 
-<p style="font-size:1.2rem;">
-May your FPS stay high, your ping stay low,
-your battery never die,
-and your luck be better than your exam preparation. 🎮🤣
-</p>
+            <p style="font-size:1.2rem;">
+                May your FPS stay high, your ping stay low,
+                your battery never die,
+                and your luck be better than your exam preparation. 🎮🤣
+            </p>
 
-<p style="font-size:1.2rem;">
-Wishing you lots of happiness, success,
-money, adventures, and legendary memories.
-</p>
+            <p style="font-size:1.2rem;">
+                Wishing you lots of happiness, success,
+                money, adventures, and legendary memories.
+            </p>
 
-<h2>🎉 Have a Boss-Level Birthday! 🎉</h2>
+            <h2>🎉 Have a Boss-Level Birthday! 🎉</h2>
 
-</div>
+        </div>
 
-<div style="margin-top:30px;">
-    <button id="giftBtn">
-        🎁 Claim Your Gift
-    </button>
-    
-</div>
+        <div style="margin-top:30px;">
+            <button id="giftBtn">
+                🎁 Claim Your Gift
+            </button>
 
-<div id="giftPopup" class="popup">
-    <div class="popup-content">
-        <span class="closeBtn">&times;</span>
-        <h2 id="giftTitle">🎉 Surprise Gift Unlocked!</h2>
-        <img src="gift.png" alt="Gift Image" class="gift-image">
-        <p>Happy Birthday Bro! ❤️</p>
+        </div>
+
+        <div id="giftPopup" class="popup">
+            <div class="popup-content">
+                <span class="closeBtn">&times;</span>
+                <h2 id="giftTitle">🎉 Surprise Gift Unlocked!</h2>
+                <img src="gift.png" alt="Gift Image" class="gift-image">
+                <p>Happy Birthday Bro! ❤️</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            Made with friendship, memes, and zero budget ❤️
+        </div>
+
     </div>
-</div>
 
-<div class="footer">
-Made with friendship, memes, and zero budget ❤️
-</div>
+    <script>
+        for (let i = 0; i < 120; i++) {
+            let c = document.createElement('div');
+            c.classList.add('confetti');
+            c.style.left = Math.random() * 100 + 'vw';
+            c.style.animationDuration = (Math.random() * 4 + 2) + 's';
+            c.style.backgroundColor =
+                ['red', 'yellow', 'cyan', 'lime', 'pink', 'orange']
+                [Math.floor(Math.random() * 6)];
+            document.body.appendChild(c);
+        }
 
-</div>
+        const faaahSound = document.getElementById("faaahSound");
+        const giftBtn = document.getElementById("giftBtn");
+        const popup = document.getElementById("giftPopup");
+        const closeBtn = document.querySelector(".closeBtn");
+        const giftTitle = document.getElementById("giftTitle");
+        let giftClaimed = false;
 
-<script>
-for(let i=0;i<120;i++){
-    let c=document.createElement('div');
-    c.classList.add('confetti');
-    c.style.left=Math.random()*100+'vw';
-    c.style.animationDuration=(Math.random()*4+2)+'s';
-    c.style.backgroundColor=
-    ['red','yellow','cyan','lime','pink','orange']
-    [Math.floor(Math.random()*6)];
-    document.body.appendChild(c);
-}
+        function createBlast(x, y) {
+            // flash
+            const flash = document.createElement('div');
+            flash.classList.add('flash');
+            flash.style.left = (x - 50) + 'px';
+            flash.style.top = (y - 50) + 'px';
+            document.body.appendChild(flash);
+            setTimeout(() => flash.remove(), 400);
 
-const giftBtn=document.getElementById("giftBtn");
-const popup=document.getElementById("giftPopup");
-const closeBtn=document.querySelector(".closeBtn");
-const giftTitle=document.getElementById("giftTitle");
-let giftClaimed = false;
+            // shockwave ring
+            const ring = document.createElement('div');
+            ring.classList.add('shockwave');
+            ring.style.left = (x - 30) + 'px';
+            ring.style.top = (y - 30) + 'px';
+            document.body.appendChild(ring);
+            setTimeout(() => ring.remove(), 600);
 
-function createBlast(x, y){
-    // flash
-    const flash = document.createElement('div');
-    flash.classList.add('flash');
-    flash.style.left = (x - 50) + 'px';
-    flash.style.top = (y - 50) + 'px';
-    document.body.appendChild(flash);
-    setTimeout(()=> flash.remove(), 400);
+            // particles
+            const colors = ['#00e5ff', '#7c4dff', '#ffeb3b', '#ff5252', '#69f0ae'];
+            for (let i = 0; i < 24; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                p.style.left = x + 'px';
+                p.style.top = y + 'px';
+                p.style.background = colors[Math.floor(Math.random() * colors.length)];
 
-    // shockwave ring
-    const ring = document.createElement('div');
-    ring.classList.add('shockwave');
-    ring.style.left = (x - 30) + 'px';
-    ring.style.top = (y - 30) + 'px';
-    document.body.appendChild(ring);
-    setTimeout(()=> ring.remove(), 600);
+                const angle = (Math.PI * 2 * i) / 24;
+                const distance = 100 + Math.random() * 100;
+                p.style.setProperty('--x', Math.cos(angle) * distance + 'px');
+                p.style.setProperty('--y', Math.sin(angle) * distance + 'px');
 
-    // particles
-    const colors = ['#00e5ff','#7c4dff','#ffeb3b','#ff5252','#69f0ae'];
-    for(let i=0;i<24;i++){
-        const p = document.createElement('div');
-        p.classList.add('particle');
-        p.style.left = x + 'px';
-        p.style.top = y + 'px';
-        p.style.background = colors[Math.floor(Math.random()*colors.length)];
+                document.body.appendChild(p);
+                setTimeout(() => p.remove(), 700);
+            }
+        }
 
-        const angle = (Math.PI*2 * i)/24;
-        const distance = 100 + Math.random()*100;
-        p.style.setProperty('--x', Math.cos(angle)*distance + 'px');
-        p.style.setProperty('--y', Math.sin(angle)*distance + 'px');
+        giftBtn.onclick = () => {
+            if (giftClaimed) return;
 
-        document.body.appendChild(p);
-        setTimeout(()=> p.remove(), 700);
-    }
-}
+            giftBtn.classList.add("shaking");
+            giftBtn.innerHTML = "📡 Requesting...";
 
-giftBtn.onclick=()=>{
-    if(giftClaimed) return;
+            setTimeout(() => {
+                giftBtn.innerHTML = "⚙️ Processing...";
+            }, 1000);
 
-    giftBtn.classList.add("shaking");
-    giftBtn.innerHTML="📡 Requesting...";
+            setTimeout(() => {
+                giftBtn.classList.remove("shaking");
 
-    setTimeout(()=>{
-        giftBtn.innerHTML="⚙️ Processing...";
-    }, 1000);
+                const rect = giftBtn.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+                createBlast(x, y);
+            }, 2000);
 
-    setTimeout(()=>{
-        giftBtn.classList.remove("shaking");
+            setTimeout(() => {
+                popup.style.display = "block";
+                giftTitle.innerHTML = "😂 GOTCHA BRO!";
 
-        const rect = giftBtn.getBoundingClientRect();
-        const x = rect.left + rect.width/2;
-        const y = rect.top + rect.height/2;
-        createBlast(x, y);
-    }, 2000);
+                giftClaimed = true;
+                giftBtn.classList.add("claimed");
+                giftBtn.innerHTML = "✅ Claimed";
+                giftBtn.title = "Already Claimed 😂";
+            }, 2300);
 
-    setTimeout(()=>{
-        popup.style.display="block";
-        giftTitle.innerHTML="😂 GOTCHA BRO!";
+            setTimeout(() => {
+                popup.style.display = "block";
+                giftTitle.innerHTML = "😂 GOTCHA BRO!";
+                faaahSound.currentTime = 0;
+                faaahSound.play();
 
-        giftClaimed = true;
-        giftBtn.classList.add("claimed");
-        giftBtn.innerHTML="✅ Claimed";
-        giftBtn.title="Already Claimed 😂";
-    }, 2300);
-}
-closeBtn.onclick=()=>{
-    popup.style.display="none";
-}
+                giftClaimed = true;
+                giftBtn.classList.add("claimed");
+                giftBtn.innerHTML = "✅ Claimed";
+                giftBtn.title = "Already Claimed 😂";
+            }, 2300);
+        }
+        closeBtn.onclick = () => {
+            popup.style.display = "none";
+        }
 
-window.onclick=(e)=>{
-    if(e.target==popup){
-        popup.style.display="none";
-    }
-}
+        window.onclick = (e) => {
+            if (e.target == popup) {
+                popup.style.display = "none";
+            }
+        }
 
-</script>
+    </script>
 
 </body>
+
 </html>
